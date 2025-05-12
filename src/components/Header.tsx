@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -9,6 +9,11 @@ import { navigation, languages } from '@/config/navigation'
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
   
   // Extract the current language from the pathname
   const currentLang = pathname.split('/')[1] as keyof typeof navigation
@@ -85,6 +90,7 @@ export default function Header() {
                   className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-primary-dark ${
                     pathname === `/${currentLang}${item.href}` ? 'bg-primary-dark' : ''
                   }`}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
@@ -95,6 +101,7 @@ export default function Header() {
                     key={lang.code}
                     href={`/${lang.code}${basePath}`}
                     className="block rounded-md px-3 py-2 text-base font-medium hover:bg-primary-dark"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {lang.name}
                   </Link>

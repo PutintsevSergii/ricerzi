@@ -4,7 +4,7 @@ import About from '@/components/About'
 import Initiatives from '@/components/Initiatives'
 
 // Define supported languages
-const languages = ['pl', 'en', 'ua']
+const languages = ['lv', 'pl', 'en', 'ua']
 
 export default function Home({
   params: { lang },
