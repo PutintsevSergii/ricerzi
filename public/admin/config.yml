@@ -9,9 +9,54 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/content/pages/home.md"
-        label: "Home Page"
-        name: "home"
+      - file: "src/content/pages/home.lv.md"
+        label: "Home Page (Latvian)"
+        name: "home-lv"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Description", name: "heroDescription", widget: "text"}
+          - {label: "About Title", name: "aboutTitle", widget: "string"}
+          - {label: "About Content", name: "aboutContent", widget: "markdown"}
+          - {label: "Initiatives", name: "initiatives", widget: "list", fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "string"}}
+
+      - file: "src/content/pages/home.pl.md"
+        label: "Home Page (Polish)"
+        name: "home-pl"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Description", name: "heroDescription", widget: "text"}
+          - {label: "About Title", name: "aboutTitle", widget: "string"}
+          - {label: "About Content", name: "aboutContent", widget: "markdown"}
+          - {label: "Initiatives", name: "initiatives", widget: "list", fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "string"}}
+
+      - file: "src/content/pages/home.en.md"
+        label: "Home Page (English)"
+        name: "home-en"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Description", name: "heroDescription", widget: "text"}
+          - {label: "About Title", name: "aboutTitle", widget: "string"}
+          - {label: "About Content", name: "aboutContent", widget: "markdown"}
+          - {label: "Initiatives", name: "initiatives", widget: "list", fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "string"}}
+
+      - file: "src/content/pages/home.ua.md"
+        label: "Home Page (Ukrainian)"
+        name: "home-ua"
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
           - {label: "Title", name: "title", widget: "string"}
