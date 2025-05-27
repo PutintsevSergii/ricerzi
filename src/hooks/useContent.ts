@@ -12,6 +12,12 @@ const homePl = require('../content/pages/home.pl.md')
 const homeEn = require('../content/pages/home.en.md')
 const homeUa = require('../content/pages/home.ua.md')
 
+// Import contacts page markdown files
+const contactsLv = require('../content/pages/contacts.lv.md')
+const contactsPl = require('../content/pages/contacts.pl.md')
+const contactsEn = require('../content/pages/contacts.en.md')
+const contactsUa = require('../content/pages/contacts.ua.md')
+
 // Map paths to their content
 const contentMap: Record<string, any> = {
   'pages/about.lv': aboutLv,
@@ -22,6 +28,10 @@ const contentMap: Record<string, any> = {
   'pages/home.pl': homePl,
   'pages/home.en': homeEn,
   'pages/home.ua': homeUa,
+  'pages/contacts.lv': contactsLv,
+  'pages/contacts.pl': contactsPl,
+  'pages/contacts.en': contactsEn,
+  'pages/contacts.ua': contactsUa,
 }
 
 export function useContent(path: string) {

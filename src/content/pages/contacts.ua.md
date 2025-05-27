@@ -1,0 +1,28 @@
+---
+title: 'Контакти'
+contactTitle: 'Зв\'яжіться з нами'
+contactDescription: 'Ми будемо раді почути від вас. Будь ласка, не соромтеся звертатися до нас через будь-який з наступних каналів.'
+contactInfo:
+  - type: 'email'
+    label: 'Email'
+    value: 'contact@knightsjp2.org'
+    icon: 'mail'
+  - type: 'phone'
+    label: 'Телефон'
+    value: '+48 123 456 789'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Адреса'
+    value: 'вул. Костьольна 123, Варшава, Польща'
+    icon: 'map-pin'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+--- 

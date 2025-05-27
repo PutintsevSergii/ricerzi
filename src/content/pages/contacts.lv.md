@@ -1,0 +1,28 @@
+---
+title: 'Kontakti'
+contactTitle: 'Sazinieties ar mums'
+contactDescription: 'Mēs būtu priecīgi dzirdēt no jums. Lūdzu, sazinieties ar mums, izmantojot jebkuru no šiem kanāliem.'
+contactInfo:
+  - type: 'email'
+    label: 'E-pasts'
+    value: 'contact@knightsjp2.org'
+    icon: 'mail'
+  - type: 'phone'
+    label: 'Tālrunis'
+    value: '+48 123 456 789'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Adrese'
+    value: 'Baznīcas iela 123, Varšava, Polija'
+    icon: 'map-pin'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+--- 

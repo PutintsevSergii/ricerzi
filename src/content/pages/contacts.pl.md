@@ -1,0 +1,28 @@
+---
+title: 'Kontakt'
+contactTitle: 'Skontaktuj się z nami'
+contactDescription: 'Chętnie nawiążemy z Tobą kontakt. Możesz się z nami skontaktować przez dowolny z poniższych kanałów.'
+contactInfo:
+  - type: 'email'
+    label: 'Email'
+    value: 'contact@knightsjp2.org'
+    icon: 'mail'
+  - type: 'phone'
+    label: 'Telefon'
+    value: '+48 123 456 789'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Adres'
+    value: 'ul. Kościelna 123, Warszawa, Polska'
+    icon: 'map-pin'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+--- 

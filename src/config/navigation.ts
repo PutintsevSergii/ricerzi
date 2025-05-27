@@ -4,28 +4,28 @@ export const navigation = {
     { name: 'Par mums', href: '/about' },
     { name: 'Garīgums', href: '/spirituality' },
     { name: 'Pievienojies', href: '/join' },
-    { name: 'Kontakti', href: '/contact' },
+    { name: 'Kontakti', href: '/contacts' },
   ],
   pl: [
     { name: 'Strona główna', href: '/' },
     { name: 'O nas', href: '/about' },
     { name: 'Duchowość', href: '/spirituality' },
     { name: 'Dołącz', href: '/join' },
-    { name: 'Kontakt', href: '/contact' },
+    { name: 'Kontakt', href: '/contacts' },
   ],
   en: [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Spirituality', href: '/spirituality' },
     { name: 'Join', href: '/join' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Contact', href: '/contacts' },
   ],
   ua: [
     { name: 'Головна', href: '/' },
     { name: 'Про нас', href: '/about' },
     { name: 'Духовність', href: '/spirituality' },
     { name: 'Приєднатися', href: '/join' },
-    { name: 'Контакт', href: '/contact' },
+    { name: 'Контакт', href: '/contacts' },
   ],
 } as const;
 
