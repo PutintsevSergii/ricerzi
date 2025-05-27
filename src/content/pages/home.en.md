@@ -1,7 +1,7 @@
 ---
 title: 'Knights of John Paul II'
 heroTitle: 'Knights of John Paul II'
-heroDescription: 'Faithful to tradition, open to the future. Building a community in the spirit of St. John Paul II\'s teaching.'
+heroDescription: "Faithful to tradition, open to the future. Building a community in the spirit of St. John Paul II's teaching."
 aboutTitle: 'About Us'
 aboutContent: |
   The Knights of John Paul II is a Catholic community founded in the spirit of St. John Paul II's teaching. Our goal is to build a strong community of faithful who wish to live according to Christian values and serve God and neighbor.

@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { useContent } from '@/hooks/useContent'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Initiatives from '@/components/Initiatives'
@@ -16,11 +17,24 @@ export default function Home({
     notFound()
   }
 
+  // Load language-specific content
+  const { data: content } = useContent(`pages/home.${lang}`)
+
+  if (!content) {
+    return null
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
-      <Hero />
-      <About />
-      <Initiatives />
+      <Hero 
+        title={content.heroTitle}
+        description={content.heroDescription}
+      />
+      <About 
+        title={content.aboutTitle}
+        content={content.aboutContent}
+      />
+      <Initiatives initiatives={content.initiatives} />
     </div>
   )
 }
