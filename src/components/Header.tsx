@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { navigation, languages } from '@/config/navigation'
+import { navigation } from '@/config/navigation'
+import LanguageSwitcher from './ui/LanguageSwitcher'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -48,17 +49,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="flex items-center space-x-4">
-              {languages.map((lang) => (
-                <Link
-                  key={lang.code}
-                  href={`/${lang.code}${basePath}`}
-                  className="text-sm font-medium hover:text-accent"
-                >
-                  {lang.name}
-                </Link>
-              ))}
-            </div>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}
@@ -96,16 +87,7 @@ export default function Header() {
                 </Link>
               ))}
               <div className="border-t border-primary-dark pt-4">
-                {languages.map((lang) => (
-                  <Link
-                    key={lang.code}
-                    href={`/${lang.code}${basePath}`}
-                    className="block rounded-md px-3 py-2 text-base font-medium hover:bg-primary-dark"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {lang.name}
-                  </Link>
-                ))}
+                <LanguageSwitcher />
               </div>
             </div>
           </div>
