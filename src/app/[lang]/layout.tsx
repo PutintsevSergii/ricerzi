@@ -4,6 +4,7 @@ import '../globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useContent } from '@/hooks/useContent'
+import { navigation, languages } from '@/config/navigation'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const merriweather = Merriweather({
@@ -13,7 +14,7 @@ const merriweather = Merriweather({
 })
 
 // Define supported languages
-const languages = ['lv', 'pl', 'en', 'ru']
+const supportedLanguages = ['lv', 'pl', 'en', 'ru']
 
 interface SiteMetadata {
   title: string
@@ -28,13 +29,28 @@ export default function RootLayout({
   params: { lang: string }
 }) {
   // Check if the language is supported
-  if (!languages.includes(lang)) {
+  if (!supportedLanguages.includes(lang)) {
     notFound()
   }
 
   // Get language-specific metadata
   const { data } = useContent(`site.${lang}`)
   const { title, description } = data as SiteMetadata
+
+  // Get the current language's navigation items
+  const currentNavigation = navigation[lang as keyof typeof navigation] || navigation.en
+
+  // Prepare languages data for the switcher
+  const languagesData = languages.map(lang => ({
+    code: lang.code,
+    name: lang.name,
+    flag: {
+      en: '🇬🇧',
+      pl: '🇵🇱',
+      lv: '🇱🇻',
+      ru: '🇷🇺',
+    }[lang.code]
+  }))
 
   return (
     <html lang={lang}>
@@ -44,9 +60,16 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${merriweather.variable} font-body bg-background text-text`}>
         <div className="min-h-screen flex flex-col">
-          <Header />
+          <Header 
+            currentLang={lang}
+            navigation={currentNavigation}
+            languages={languagesData}
+          />
           <main className="flex-grow">{children}</main>
-          <Footer />
+          <Footer 
+            currentLang={lang}
+            navigation={currentNavigation}
+          />
         </div>
       </body>
     </html>

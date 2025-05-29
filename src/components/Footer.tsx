@@ -3,9 +3,18 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export default function Footer() {
+interface NavigationItem {
+  name: string
+  href: string
+}
+
+interface FooterProps {
+  currentLang: string
+  navigation: readonly NavigationItem[]
+}
+
+export default function Footer({ currentLang, navigation }: FooterProps) {
   const pathname = usePathname()
-  const currentLang = pathname.split('/')[1]
 
   return (
     <footer className="bg-primary text-white">
@@ -27,18 +36,17 @@ export default function Footer() {
           <div>
             <h3 className="font-heading text-lg font-semibold">Quick Links</h3>
             <nav className="mt-4 space-y-2">
-              <Link href={`/${currentLang}/about`} className="block hover:text-accent">
-                About Us
-              </Link>
-              <Link href={`/${currentLang}/spirituality`} className="block hover:text-accent">
-                Spirituality
-              </Link>
-              <Link href={`/${currentLang}/join`} className="block hover:text-accent">
-                Join Us
-              </Link>
-              <Link href={`/${currentLang}/contact`} className="block hover:text-accent">
-                Contact
-              </Link>
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={`/${currentLang}${item.href}`}
+                  className={`block hover:text-accent ${
+                    pathname === `/${currentLang}${item.href}` ? 'text-accent' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </nav>
           </div>
 

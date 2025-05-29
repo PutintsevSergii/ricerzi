@@ -6,6 +6,11 @@ const locales = ['lv', 'pl', 'en', 'ru']
 
 // Get the preferred locale, similar to above or using a different method
 function getLocale(request: NextRequest) {
+  // For root path, always return Latvian
+  if (request.nextUrl.pathname === '/') {
+    return 'lv'
+  }
+
   const acceptLanguage = request.headers.get('accept-language')
   if (acceptLanguage) {
     const preferredLocale = acceptLanguage.split(',')[0].split('-')[0]
@@ -19,6 +24,12 @@ function getLocale(request: NextRequest) {
 export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname
+
+  // Special handling for root path
+  if (pathname === '/') {
+    request.nextUrl.pathname = '/lv'
+    return NextResponse.redirect(request.nextUrl)
+  }
 
   // Check if the pathname starts with a locale
   const pathnameHasLocale = locales.some(
@@ -37,6 +48,5 @@ export const config = {
   matcher: [
     // Skip all internal paths (_next)
     '/((?!_next/|api/|favicon.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.ico|.*\\.txt|.*\\.xml|.*\\.json).*)',
-    
   ],
 } 

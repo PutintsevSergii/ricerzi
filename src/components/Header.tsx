@@ -5,10 +5,26 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { navigation } from '@/config/navigation'
 import LanguageSwitcher from './ui/LanguageSwitcher'
 
-export default function Header() {
+interface NavigationItem {
+  name: string
+  href: string
+}
+
+interface Language {
+  code: string
+  name: string
+  flag: string
+}
+
+interface HeaderProps {
+  currentLang: string
+  navigation: readonly NavigationItem[]
+  languages: Language[]
+}
+
+export default function Header({ currentLang, navigation, languages }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   
@@ -16,16 +32,6 @@ export default function Header() {
   useEffect(() => {
     setMobileMenuOpen(false)
   }, [pathname])
-  
-  // Extract the current language from the pathname
-  const currentLang = pathname.split('/')[1] as keyof typeof navigation
-  
-  // Get the path without the language prefix
-  const pathWithoutLang = pathname.split('/').slice(2).join('/')
-  const basePath = pathWithoutLang ? `/${pathWithoutLang}` : '/'
-
-  // Get the current language's navigation items
-  const currentNavigation = navigation[currentLang] || navigation.en
 
   return (
     <header className="bg-primary text-white">
@@ -41,7 +47,6 @@ export default function Header() {
                 quality={100}
                 className="object-contain"
                 unoptimized
-                
                 priority
               />
               Rycerze Jana Pawła II
@@ -50,7 +55,7 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            {currentNavigation.map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={`/${currentLang}${item.href}`}
@@ -61,7 +66,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <LanguageSwitcher />
+            <LanguageSwitcher languages={languages} currentLang={currentLang} />
           </div>
 
           {/* Mobile menu button */}
@@ -86,7 +91,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {currentNavigation.map((item) => (
+              {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={`/${currentLang}${item.href}`}
@@ -99,7 +104,7 @@ export default function Header() {
                 </Link>
               ))}
               <div className="border-t border-primary-dark pt-4">
-                <LanguageSwitcher />
+                <LanguageSwitcher languages={languages} currentLang={currentLang} />
               </div>
             </div>
           </div>

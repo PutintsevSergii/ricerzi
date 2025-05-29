@@ -5,20 +5,20 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { languages } from '@/config/navigation'
 
-const languageFlags: Record<string, string> = {
-  en: '🇬🇧',
-  pl: '🇵🇱',
-  lv: '🇱🇻',
-  ru: '🇷🇺',
+interface Language {
+  code: string
+  name: string
+  flag: string
 }
 
-export default function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  languages: Language[]
+  currentLang: string
+}
+
+export default function LanguageSwitcher({ languages, currentLang }: LanguageSwitcherProps) {
   const pathname = usePathname()
-  
-  // Extract the current language from the pathname
-  const currentLang = pathname.split('/')[1] as keyof typeof languageFlags
   
   // Get the path without the language prefix
   const pathWithoutLang = pathname.split('/').slice(2).join('/')
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">
-          <span className="text-lg">{languageFlags[currentLang]}</span>
+          <span className="text-lg">{languages.find(lang => lang.code === currentLang)?.flag}</span>
           <span className="hidden sm:inline-block ml-1">{languages.find(lang => lang.code === currentLang)?.name}</span>
           <ChevronDownIcon className="-mr-1 h-5 w-5 text-white" aria-hidden="true" />
         </Menu.Button>
@@ -56,7 +56,7 @@ export default function LanguageSwitcher() {
                       currentLang === lang.code ? 'bg-gray-50' : ''
                     } flex items-center px-4 py-2 text-sm text-gray-700`}
                   >
-                    <span className="text-lg mr-2">{languageFlags[lang.code]}</span>
+                    <span className="text-lg mr-2">{lang.flag}</span>
                     {lang.name}
                   </Link>
                 )}
