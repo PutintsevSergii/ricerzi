@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { navigation } from '@/config/navigation'
@@ -31,7 +32,18 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href={`/${currentLang}`} className="font-heading text-2xl font-bold">
+            <Link href={`/${currentLang}`} className="font-heading text-2xl font-bold text-accent flex items-center gap-2">
+              <Image
+                src="/logo_small.png"
+                alt="Rycerze Jana Pawła II logo"
+                width={40}
+                height={40}
+                quality={100}
+                className="object-contain"
+                unoptimized
+                
+                priority
+              />
               Rycerze Jana Pawła II
             </Link>
           </div>
