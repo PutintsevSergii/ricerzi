@@ -12,6 +12,11 @@ aboutContent: |
   2. **Działalność charytatywna** - pomagamy potrzebującym w duchu miłosierdzia
   3. **Wsparcie dla Ukrainy** - angażujemy się w pomoc naszym sąsiadom w potrzebie
 
+initiativesExplanation: |
+  Together we work for the common good, implementing our main goals in the spirit of St. John Paul II's teaching.
+  Ochrona życia
+  Działamy na rzecz obrony życia od poczęcia do naturalnej śmierci, organizując modlitwy, marsze i akcje edukacyjne.
+  
 initiatives:
   - title: 'Ochrona życia'
     description: 'Działamy na rzecz obrony życia od poczęcia do naturalnej śmierci, organizując modlitwy, marsze i akcje edukacyjne.'

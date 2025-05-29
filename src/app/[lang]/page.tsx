@@ -34,7 +34,7 @@ export default function Home({
         title={content.aboutTitle}
         content={content.aboutContent}
       />
-      <Initiatives initiatives={content.initiatives} />
+      <Initiatives initiatives={content.initiatives} initiativesExplanation={content.initiativesExplanation} />
     </div>
   )
 }

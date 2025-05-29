@@ -12,6 +12,11 @@ aboutContent: |
   2. **Charitable Work** - we help those in need through the spirit of mercy
   3. **Support for Ukraine** - we engage in humanitarian aid for our neighbors in need
 
+initiativesExplanation: |
+  Together we work for the common good, implementing our main goals in the spirit of St. John Paul II's teaching.
+  Ochrona życia
+  Działamy na rzecz obrony życia od poczęcia do naturalnej śmierci, organizując modlitwy, marsze i akcje edukacyjne.
+  
 initiatives:
   - title: 'Protection of Life'
     description: 'We work to defend life from conception to natural death by organizing prayers, marches, and educational campaigns.'

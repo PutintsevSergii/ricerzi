@@ -7,7 +7,8 @@ interface Initiative {
 }
 
 interface InitiativesProps {
-  initiatives: Initiative[]
+  initiatives: Initiative[],
+  initiativesExplanation: string
 }
 
 const iconMap = {
@@ -16,7 +17,7 @@ const iconMap = {
   flag: FlagIcon,
 }
 
-export default function Initiatives({ initiatives }: InitiativesProps) {
+export default function Initiatives({ initiatives, initiativesExplanation }: InitiativesProps) {
   return (
     <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -25,8 +26,7 @@ export default function Initiatives({ initiatives }: InitiativesProps) {
             Our Initiatives
           </h2>
           <p className="text-lg text-text mb-12 max-w-3xl mx-auto">
-            Together we work for the common good, implementing our main goals
-            in the spirit of St. John Paul II's teaching.
+            {initiativesExplanation}
           </p>
         </div>
 

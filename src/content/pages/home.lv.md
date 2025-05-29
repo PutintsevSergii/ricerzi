@@ -12,6 +12,11 @@ aboutContent: |
   2. **Labdarības darbība** - mēs palīdzam vajadzīgajiem žēlastības garā
   3. **Ukrainas atbalsts** - mēs iesaistāmies palīdzībā mūsu kaimiņiem grūtībās
 
+initiativesExplanation: |
+  Together we work for the common good, implementing our main goals in the spirit of St. John Paul II's teaching.
+  Ochrona życia
+  Działamy na rzecz obrony życia od poczęcia do naturalnej śmierci, organizując modlitwy, marsze i akcje edukacyjne.
+
 initiatives:
   - title: 'Dzīvības aizsardzība'
     description: 'Mēs strādājam, lai aizstāvētu dzīvību no ieņemšanas līdz dabīgai nāvei, organizējot lūgšanas, gājienus un izglītojošas kampaņas.'

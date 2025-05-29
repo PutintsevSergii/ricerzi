@@ -12,6 +12,11 @@ aboutContent: |
   2. **Благодійна діяльність** - ми допомагаємо нужденним через дух милосердя
   3. **Підтримка України** - ми займаємося гуманітарною допомогою нашим сусідам у біді
 
+initiativesExplanation: |
+  Together we work for the common good, implementing our main goals in the spirit of St. John Paul II's teaching.
+  Ochrona życia
+  Działamy na rzecz obrony życia od poczęcia do naturalnej śmierci, organizując modlitwy, marsze i akcje edukacyjne.
+  
 initiatives:
   - title: 'Захист життя'
     description: 'Ми працюємо над захистом життя від зачаття до природної смерті, організовуючи молитви, марші та освітні кампанії.'
