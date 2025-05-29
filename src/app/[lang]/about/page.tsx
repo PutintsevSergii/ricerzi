@@ -1,21 +1,14 @@
-'use client'
-
-import { notFound } from 'next/navigation'
-import { useContent } from '@/hooks/useContent'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
 import { Heading } from '@/components/ui/heading'
 import { Text } from '@/components/ui/text'
 import { Image } from '@/components/ui/image'
+import { languages } from '@/config/navigation'
+import { useContent } from '@/hooks/useContent'
+import { AboutContent, AboutValue, AboutMilestone, AboutPageProps } from '@/components/About'
 
-const languages = ['lv', 'pl', 'en', 'ua']
-
-export default function AboutPage({ params }: { params: { lang: string } }) {
-  if (!languages.includes(params.lang)) {
-    notFound()
-  }
-
-  const { data: content } = useContent(`pages/about.${params.lang}`)
+export default function AboutPage({ params: { lang } }: AboutPageProps) {
+  const { data: content } = useContent(`pages/about.${lang}`)
 
   if (!content) {
     return null
@@ -46,7 +39,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
                 {content.valuesTitle}
               </Heading>
               <ul className="space-y-4">
-                {content.values.map((value: any, index: number) => (
+                {content.values.map((value: AboutValue, index: number) => (
                   <li key={index} className="flex items-start">
                     <span className="text-primary text-2xl mr-3">•</span>
                     <div>
@@ -77,7 +70,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
           <div className="max-w-3xl mx-auto">
             <Text className="text-lg mb-8">{content.historyContent}</Text>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {content.milestones.map((milestone: any, index: number) => (
+              {content.milestones.map((milestone: AboutMilestone, index: number) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
                   <Text className="font-semibold text-primary mb-2">
                     {milestone.year}
@@ -91,4 +84,9 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
       </Section>
     </main>
   )
+}
+
+// Generate static params for all supported languages
+export async function generateStaticParams() {
+  return languages.map(({ code }) => ({ lang: code }))
 } 

@@ -1,11 +1,44 @@
 import Image from 'next/image'
 
+export interface AboutValue {
+  title: string
+  description: string
+}
+
+export interface AboutMilestone {
+  year: string
+  description: string
+}
+
+export interface AboutContent {
+  heroTitle: string
+  heroDescription: string
+  missionTitle: string
+  missionContent: string
+  valuesTitle: string
+  values: AboutValue[]
+  image: string
+  imageAlt: string
+  historyTitle: string
+  historyContent: string
+  milestones: AboutMilestone[]
+}
+
+export interface AboutPageProps {
+  params: {
+    lang: string
+  }
+}
+
 interface AboutProps {
   title: string
   content: string
+  values?: AboutValue[]
+  image?: string
+  imageAlt?: string
 }
 
-export default function About({ title, content }: AboutProps) {
+export default function About({ title, content, values, image, imageAlt }: AboutProps) {
   return (
     <section className="py-16 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -13,8 +46,8 @@ export default function About({ title, content }: AboutProps) {
           {/* Image */}
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?q=80&w=2070"
-              alt="Knights of John Paul II members"
+              src={image || "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?q=80&w=2070"}
+              alt={imageAlt || "Knights of John Paul II members"}
               fill
               className="object-cover"
             />
@@ -28,32 +61,20 @@ export default function About({ title, content }: AboutProps) {
             <div className="prose prose-lg text-text mb-6">
               {content}
             </div>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white">
-                  1
-                </span>
-                <span className="ml-3 text-text">
-                  <strong className="font-semibold">Protection of Life</strong> - we work to defend life from conception to natural death
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white">
-                  2
-                </span>
-                <span className="ml-3 text-text">
-                  <strong className="font-semibold">Charitable Work</strong> - we help those in need through the spirit of mercy
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white">
-                  3
-                </span>
-                <span className="ml-3 text-text">
-                  <strong className="font-semibold">Support for Ukraine</strong> - we engage in humanitarian aid for our neighbors in need
-                </span>
-              </li>
-            </ul>
+            {values && (
+              <ul className="space-y-4">
+                {values.map((value, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white">
+                      {index + 1}
+                    </span>
+                    <span className="ml-3 text-text">
+                      <strong className="font-semibold">{value.title}</strong> - {value.description}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
