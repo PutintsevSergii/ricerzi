@@ -13,9 +13,6 @@ const merriweather = Merriweather({
   variable: '--font-merriweather',
 })
 
-// Define supported languages
-const supportedLanguages = ['lv', 'pl', 'en', 'ru']
-
 interface SiteMetadata {
   title: string
   description: string
@@ -29,7 +26,7 @@ export default function RootLayout({
   params: { lang: string }
 }) {
   // Check if the language is supported
-  if (!supportedLanguages.includes(lang)) {
+  if (!languages.some(l => l.code === lang)) {
     notFound()
   }
 

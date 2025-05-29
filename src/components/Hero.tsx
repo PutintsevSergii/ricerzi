@@ -1,13 +1,20 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useContent } from '@/hooks/useContent'
 
-export default function Hero() {
-  const pathname = usePathname()
-  const lang = pathname.split('/')[1] || 'en'
-  const { data: content } = useContent(`pages/home.${lang}`)
+interface HeroContent {
+  heroName: string
+  heroSlogan: string
+  heroDescription: string
+}
+
+interface HeroProps {
+  currentLang: string
+}
+
+export default function Hero({ currentLang }: HeroProps) {
+  const { data: content } = useContent(`pages/home.${currentLang}`)
 
   if (!content) {
     return null

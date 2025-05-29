@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation'
 import { useContent } from '@/hooks/useContent'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -10,11 +9,6 @@ export default function Home({
 }: {
   params: { lang: string }
 }) {
-  // Check if the language is supported
-  if (!languages.some(l => l.code === lang)) {
-    notFound()
-  }
-
   // Load language-specific content
   const { data: content } = useContent(`pages/home.${lang}`)
 
@@ -24,7 +18,7 @@ export default function Home({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Hero />
+      <Hero currentLang={lang} />
       <About 
         title={content.aboutTitle}
         content={content.aboutContent}
