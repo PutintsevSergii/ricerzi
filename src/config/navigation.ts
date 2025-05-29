@@ -14,10 +14,10 @@ export const navigation = {
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contacts' },
   ],
-  ua: [
-    { name: 'Головна', href: '/' },
-    { name: 'Про нас', href: '/about' },
-    { name: 'Контакт', href: '/contacts' },
+  ru: [
+    { name: 'Главная', href: '/' },
+    { name: 'О нас', href: '/about' },
+    { name: 'Контакты', href: '/contacts' },
   ],
 } as const;
 
@@ -25,5 +25,5 @@ export const languages = [
   { code: 'lv', name: 'Latviešu' },
   { code: 'pl', name: 'Polski' },
   { code: 'en', name: 'English' },
-  { code: 'ua', name: 'Українська' },
+  { code: 'ru', name: 'Русский' },
 ] as const; 
