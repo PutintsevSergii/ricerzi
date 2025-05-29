@@ -1,7 +1,8 @@
 ---
 title: 'Rycerze Jana Pawła II'
-heroTitle: 'Rycerze Jana Pawła II'
-heroDescription: 'Wierni tradycji, otwarci na przyszłość. Budujemy wspólnotę w duchu nauczania św. Jana Pawła II.'
+heroName: 'Zakon Rycerzy Świętego Jana Pawła II Wielkiego'
+heroSlogan: 'Żyj jak Wojownik Boga'
+heroDescription: 'Zakon Rycerzy Świętego Jana Pawła II Wielkiego to wspólnota katolickich mężczyzn, wiernych nauce Kościoła, służących Chrystusowi i Ojczyźnie. Inspirując się dziedzictwem Papieża-Polaka, dążymy do świętości poprzez modlitwę, służbę, obronę wiary i wspólnotowe działanie. Jesteśmy mężczyznami, którzy żyją jak wojownicy Boga – z odwagą, honorem i wiernością Ewangelii.'
 aboutTitle: 'O nas'
 aboutContent: |
   Rycerze Jana Pawła II to wspólnota katolicka, która powstała w duchu nauczania św. Jana Pawła II. Naszym celem jest budowanie silnej wspólnoty wiernych, którzy pragną żyć zgodnie z wartościami chrześcijańskimi i służyć Bogu oraz bliźnim.

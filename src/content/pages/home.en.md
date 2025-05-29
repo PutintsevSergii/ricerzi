@@ -1,7 +1,8 @@
 ---
 title: 'Knights of John Paul II'
-heroTitle: 'Knights of John Paul II'
-heroDescription: "Faithful to tradition, open to the future. Building a community in the spirit of St. John Paul II's teaching."
+heroName: 'Order of Knights of Saint John Paul II the Great'
+heroSlogan: 'Live as a Warrior of God'
+heroDescription: 'The Order of Knights of Saint John Paul II the Great is a community of Catholic men devoted to the Church, serving Christ and their homeland. Inspired by the legacy of Pope John Paul II, we strive for holiness through prayer, service, defense of the faith, and brotherhood. We live as warriors of God—with courage, honor, and loyalty to the Gospel.'
 aboutTitle: 'About Us'
 aboutContent: |
   The Knights of John Paul II is a Catholic community founded in the spirit of St. John Paul II's teaching. Our goal is to build a strong community of faithful who wish to live according to Christian values and serve God and neighbor.
