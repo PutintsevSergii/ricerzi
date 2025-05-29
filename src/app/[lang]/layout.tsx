@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import '../globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { useContent } from '@/hooks/useContent'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const merriweather = Merriweather({
@@ -12,31 +13,11 @@ const merriweather = Merriweather({
 })
 
 // Define supported languages
-const languages = ['lv', 'pl', 'en', 'ua']
+const languages = ['lv', 'pl', 'en', 'ru']
 
-// Language-specific metadata
-const metadataByLang = {
-  lv: {
-    title: 'Jāņa Pāvila II Bruņinieki',
-    description: 'Katoļu bruņinieku ordenis Jāņa Pāvila II vārdā',
-  },
-  pl: {
-    title: 'Rycerze Jana Pawła II',
-    description: 'Katolicki Zakon Rycerzy Jana Pawła II',
-  },
-  en: {
-    title: 'Knights of John Paul II',
-    description: 'Catholic Order of Knights of John Paul II',
-  },
-  ua: {
-    title: 'Лицарі Івана Павла II',
-    description: 'Католицький орден лицарів Івана Павла II',
-  },
-}
-
-export const metadata = {
-  title: 'Knights of John Paul II',
-  description: 'Catholic Order of Knights of John Paul II',
+interface SiteMetadata {
+  title: string
+  description: string
 }
 
 export default function RootLayout({
@@ -52,13 +33,14 @@ export default function RootLayout({
   }
 
   // Get language-specific metadata
-  const langMetadata = metadataByLang[lang as keyof typeof metadataByLang]
+  const { data } = useContent(`site.${lang}`)
+  const { title, description } = data as SiteMetadata
 
   return (
     <html lang={lang}>
       <head>
-        <title>{langMetadata.title}</title>
-        <meta name="description" content={langMetadata.description} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </head>
       <body className={`${inter.variable} ${merriweather.variable} font-body bg-background text-text`}>
         <div className="min-h-screen flex flex-col">

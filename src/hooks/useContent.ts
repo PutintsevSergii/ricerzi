@@ -18,6 +18,12 @@ const contactsPl = require('../content/pages/contacts.pl.md')
 const contactsEn = require('../content/pages/contacts.en.md')
 const contactsRu = require('../content/pages/contacts.ru.md')
 
+// Import site metadata files
+const siteLv = require('../content/site.lv.md')
+const sitePl = require('../content/site.pl.md')
+const siteEn = require('../content/site.en.md')
+const siteRu = require('../content/site.ru.md')
+
 // Map paths to their content
 const contentMap: Record<string, any> = {
   'pages/about.lv': aboutLv,
@@ -32,6 +38,10 @@ const contentMap: Record<string, any> = {
   'pages/contacts.pl': contactsPl,
   'pages/contacts.en': contactsEn,
   'pages/contacts.ru': contactsRu,
+  'site.lv': siteLv,
+  'site.pl': sitePl,
+  'site.en': siteEn,
+  'site.ru': siteRu,
 }
 
 export function useContent(path: string) {

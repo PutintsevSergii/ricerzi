@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
   
   // Get the path without the language prefix
   const pathWithoutLang = pathname.split('/').slice(2).join('/')
-  const basePath = pathWithoutLang ? `/${pathWithoutLang}` : '/'
+  const basePath = pathWithoutLang ? `/${pathWithoutLang}` : ''
 
   return (
     <Menu as="div" className="relative inline-block text-left">
