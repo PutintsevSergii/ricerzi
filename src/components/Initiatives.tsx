@@ -1,4 +1,11 @@
-import { HeartIcon, HandRaisedIcon, FlagIcon } from '@heroicons/react/24/outline'
+import {
+  SparklesIcon,
+  ShieldCheckIcon,
+  UsersIcon,
+  HandRaisedIcon,
+  HandThumbUpIcon,
+  FlagIcon,
+} from '@heroicons/react/24/outline';
 
 interface Initiative {
   title: string
@@ -7,23 +14,27 @@ interface Initiative {
 }
 
 interface InitiativesProps {
-  initiatives: Initiative[],
+  initiatives: Initiative[]
   initiativesExplanation: string
+  title: string
 }
 
 const iconMap = {
-  heart: HeartIcon,
-  hand: HandRaisedIcon,
+  sparkles: SparklesIcon,
+  'shield-check': ShieldCheckIcon,
+  users: UsersIcon,
+  'hand-raised': HandRaisedIcon,
+  'hand-thumb-up': HandThumbUpIcon,
   flag: FlagIcon,
-}
+};
 
-export default function Initiatives({ initiatives, initiativesExplanation }: InitiativesProps) {
+export default function Initiatives({ initiatives, initiativesExplanation, title }: InitiativesProps) {
   return (
     <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-primary mb-4">
-            Our Initiatives
+            {title}
           </h2>
           <p className="text-lg text-text mb-12 max-w-3xl mx-auto">
             {initiativesExplanation}

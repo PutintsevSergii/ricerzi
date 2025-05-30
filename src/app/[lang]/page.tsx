@@ -20,10 +20,15 @@ export default function Home({
     <div className="flex flex-col min-h-screen">
       <Hero currentLang={lang} />
       <About 
+        image="/lv_simb.png"
         title={content.aboutTitle}
         content={content.aboutContent}
       />
-      <Initiatives initiatives={content.initiatives} initiativesExplanation={content.initiativesExplanation} />
+      <Initiatives 
+        initiatives={content.initiatives} 
+        initiativesExplanation={content.initiativesExplanation}
+        title={content.initiativesTitle}
+      />
     </div>
   )
 }

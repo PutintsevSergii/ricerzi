@@ -34,7 +34,7 @@ interface AboutProps {
   title: string
   content: string
   values?: AboutValue[]
-  image?: string
+  image: string
   imageAlt?: string
 }
 
@@ -46,10 +46,11 @@ export default function About({ title, content, values, image, imageAlt }: About
           {/* Image */}
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <Image
-              src={image || "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?q=80&w=2070"}
+              src={image}
               alt={imageAlt || "Knights of John Paul II members"}
               fill
-              className="object-cover"
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
 
