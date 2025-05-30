@@ -1,7 +1,7 @@
 ---
 title: 'Knights of John Paul II'
 heroName: 'Order of Knights of Saint John Paul II the Great'
-heroSlogan: 'Live as a Warrior of God'
+heroSlogan: '<em>"Do not be afraid. Open wide the doors to Christ."</em> - <strong>Saint John Paul II</strong>'
 heroDescription: 'The Order of Knights of Saint John Paul II the Great is a community of Catholic men devoted to the Church, serving Christ and their homeland. Inspired by the legacy of Pope John Paul II, we strive for holiness through prayer, service, defense of the faith, and brotherhood. We live as warriors of God—with courage, honor, and loyalty to the Gospel.'
 aboutTitle: 'Latvian Province of the Order – Structure and Spiritual Mission'
 aboutContent: |

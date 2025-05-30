@@ -1,7 +1,7 @@
 ---
 title: 'Rycerze Jana Pawła II'
 heroName: 'Zakon Rycerzy Świętego Jana Pawła II Wielkiego'
-heroSlogan: 'Żyj jak Wojownik Boga'
+heroSlogan: '<em>"Nie lękajcie się! Otwórzcie na oścież drzwi Chrystusowi!"</em> - <strong>Święty Jan Paweł II</strong>'
 heroDescription: 'Zakon Rycerzy Świętego Jana Pawła II Wielkiego to wspólnota katolickich mężczyzn, wiernych nauce Kościoła, służących Chrystusowi i Ojczyźnie. Inspirując się dziedzictwem Papieża-Polaka, dążymy do świętości poprzez modlitwę, służbę, obronę wiary i wspólnotowe działanie. Jesteśmy mężczyznami, którzy żyją jak wojownicy Boga – z odwagą, honorem i wiernością Ewangelii.'
 aboutTitle: 'Prowincja Łotewska Zakonu – Organizacja i Duchowa Misja'
 aboutContent: |

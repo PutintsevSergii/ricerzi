@@ -25,12 +25,22 @@ export default function Hero({ currentLang }: HeroProps) {
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
-              {content.heroName}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              {content.heroSlogan}
-            </p>
+            <div className="flex flex-col items-center mb-8">
+              <Image
+                src="/regula.png"
+                alt="Order Regula"
+                width={200}
+                height={200}
+                className="h-32 w-32 sm:h-40 sm:w-40 object-contain"
+              />
+              <h1 className="mt-8 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center">
+                {content.heroName}
+              </h1>
+            </div>
+            <p 
+              className="mt-6 text-xl sm:text-2xl leading-8 text-gray-600"
+              dangerouslySetInnerHTML={{ __html: content.heroSlogan }}
+            />
             <p className="mt-6 text-lg leading-8 text-gray-600">
               {content.heroDescription}
             </p>

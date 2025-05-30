@@ -1,7 +1,7 @@
 ---
 title: 'Svētā Jāņa Pāvila II Bruņinieki'
 heroName: 'Svētā Jāņa Pāvila II Lielā Bruņinieku Ordenis'
-heroSlogan: 'Dzīvo kā Dieva karotājs'
+heroSlogan: '<em>"Nebaidieties! Atveriet plaši durvis Kristum."</em> - <strong>Svētais Jānis Pāvils II</strong>'
 heroDescription: 'Svētā Jāņa Pāvila II Lielā Bruņinieku Ordenis ir katoļu vīriešu kopiena, kas seko Baznīcas mācībai un kalpo Kristum un Tēvzemei. Mēs iedvesmojamies no Svētā Jāņa Pāvila II mantojuma, tiecoties uz svētumu caur lūgšanu, kalpošanu, ticības aizstāvēšanu un brālīgu vienotību. Mēs dzīvojam kā Dieva karotāji – ar drosmi, godu un uzticību Evaņģēlijam.'
 aboutTitle: 'Latvijas Provinces struktūra un garīgā misija'
 aboutContent: |
