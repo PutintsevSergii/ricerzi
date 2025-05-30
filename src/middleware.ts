@@ -1,52 +1,30 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// List of all supported locales
-const locales = ['lv', 'pl', 'en', 'ru']
-
-// Get the preferred locale, similar to above or using a different method
-function getLocale(request: NextRequest) {
-  // For root path, always return Latvian
-  if (request.nextUrl.pathname === '/') {
-    return 'lv'
-  }
-
-  const acceptLanguage = request.headers.get('accept-language')
-  if (acceptLanguage) {
-    const preferredLocale = acceptLanguage.split(',')[0].split('-')[0]
-    if (locales.includes(preferredLocale)) {
-      return preferredLocale
-    }
-  }
-  return 'lv' // Default locale is now Latvian
-}
+const languages = ['en', 'lv', 'pl', 'ru']
 
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
+  // Get the pathname of the request (e.g. /, /about, /blog/first-post)
   const pathname = request.nextUrl.pathname
 
-  // Special handling for root path
-  if (pathname === '/') {
-    request.nextUrl.pathname = '/lv'
-    return NextResponse.redirect(request.nextUrl)
-  }
-
-  // Check if the pathname starts with a locale
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  // Check if the pathname starts with a language code
+  const pathnameHasLanguage = languages.some(
+    (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
   )
 
-  if (pathnameHasLocale) return
+  if (pathnameHasLanguage) return
 
-  // Redirect if there is no locale
-  const locale = getLocale(request)
-  request.nextUrl.pathname = `/${locale}${pathname}`
-  return NextResponse.redirect(request.nextUrl)
+  // Redirect if there is no language code
+  const locale = request.headers.get('accept-language')?.split(',')?.[0].split('-')[0] || 'en'
+  const defaultLanguage = languages.includes(locale) ? locale : 'en'
+
+  return NextResponse.redirect(
+    new URL(`/${defaultLanguage}${pathname}`, request.url)
+  )
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    '/((?!_next/|api/|favicon.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.ico|.*\\.txt|.*\\.xml|.*\\.json).*)',
-  ],
+    '/((?!_next/|api/|favicon.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.ico|.*\\.txt|.*\\.xml|.*\\.json).*)',  ],
 } 

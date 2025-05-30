@@ -1,22 +1,23 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Metadata } from 'next'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-  title: 'Knights of John Paul II',
-  description: 'Order of Knights of Saint John Paul II the Great',
+  title: 'Order of Knights of Saint John Paul II',
+  description: 'Official website of the Order of Knights of Saint John Paul II',
 }
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: { lang: string }
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang={params.lang} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   )
 } 
