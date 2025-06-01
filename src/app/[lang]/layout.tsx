@@ -64,8 +64,6 @@ export default function RootLayout({
           />
           <main className="flex-grow">{children}</main>
           <Footer 
-            currentLang={lang}
-            navigation={currentNavigation}
           />
         </div>
       </body>
