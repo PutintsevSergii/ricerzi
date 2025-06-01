@@ -2,22 +2,22 @@ export const navigation = {
   lv: [
     { name: 'Sākums', href: '/' },
     { name: 'Par mums', href: '/about' },
-    { name: 'Kontakti', href: '/contacts' },
+    { name: 'Dokumenti', href: '/documents' },
   ],
   pl: [
     { name: 'Strona główna', href: '/' },
     { name: 'O nas', href: '/about' },
-    { name: 'Kontakt', href: '/contacts' },
+    { name: 'Dokumenty', href: '/documents' },
   ],
   en: [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contacts' },
+    { name: 'Documents', href: '/documents' },
   ],
   ru: [
     { name: 'Главная', href: '/' },
     { name: 'О нас', href: '/about' },
-    { name: 'Контакты', href: '/contacts' },
+    { name: 'Документы', href: '/documents' },
   ],
 } as const;
 

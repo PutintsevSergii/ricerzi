@@ -12,11 +12,11 @@ const homePl = require('../content/pages/home.pl.md')
 const homeEn = require('../content/pages/home.en.md')
 const homeRu = require('../content/pages/home.ru.md')
 
-// Import contacts page markdown files
-const contactsLv = require('../content/pages/contacts.lv.md')
-const contactsPl = require('../content/pages/contacts.pl.md')
-const contactsEn = require('../content/pages/contacts.en.md')
-const contactsRu = require('../content/pages/contacts.ru.md')
+// Import documents page markdown files
+const documentsLv = require('../content/pages/documents.lv.md')
+const documentsPl = require('../content/pages/documents.pl.md')
+const documentsEn = require('../content/pages/documents.en.md')
+const documentsRu = require('../content/pages/documents.ru.md')
 
 // Import site metadata files
 const siteLv = require('../content/site.lv.md')
@@ -34,10 +34,10 @@ const contentMap: Record<string, any> = {
   'pages/home.pl': homePl,
   'pages/home.en': homeEn,
   'pages/home.ru': homeRu,
-  'pages/contacts.lv': contactsLv,
-  'pages/contacts.pl': contactsPl,
-  'pages/contacts.en': contactsEn,
-  'pages/contacts.ru': contactsRu,
+  'pages/documents.lv': documentsLv,
+  'pages/documents.pl': documentsPl,
+  'pages/documents.en': documentsEn,
+  'pages/documents.ru': documentsRu,
   'site.lv': siteLv,
   'site.pl': sitePl,
   'site.en': siteEn,
