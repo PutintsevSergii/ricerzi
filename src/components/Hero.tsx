@@ -21,9 +21,10 @@ export default function Hero({ currentLang }: HeroProps) {
   }
 
   return (
-    <div className="relative bg-white">
-      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-        <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
+    <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-white">
+      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 min-h-[800px]">
+        {/* Content section */}
+        <div className="px-6 lg:col-span-6 lg:px-0 flex items-center">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <div className="flex flex-col items-center mb-8">
               <Image
@@ -46,15 +47,24 @@ export default function Hero({ currentLang }: HeroProps) {
             </p>
           </div>
         </div>
-        <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-          <Image
-            className="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-            src="/jp2.png"
-            alt="Hero image"
-            width={200}
-            height={300}
-            priority
-          />
+
+        {/* Image section */}
+        <div className="relative lg:col-span-6 lg:flex lg:items-center lg:justify-center">
+          <div className="relative h-full w-full max-w-2xl mx-auto">
+            <Image
+              className="relative object-contain h-full w-full"
+              src="/jp2.png"
+              alt="Hero image"
+              width={800}
+              height={1200}
+              priority
+              style={{
+                maxHeight: '100%',
+                width: 'auto',
+                margin: '0 auto'
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
