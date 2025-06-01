@@ -78,13 +78,17 @@
 }
 
 /* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #1a1a1a;
-    --color-background-light: #2d2d2d;
-    --color-background-dark: #000000;
-    --color-text: #ffffff;
-    --color-text-light: #e0e0e0;
-    --color-text-dark: #ffffff;
-  }
+[data-theme='dark'] {
+  --color-background: #1a1a1a;
+  --color-background-light: #2d2d2d;
+  --color-background-dark: #000000;
+  --color-text: #ffffff;
+  --color-text-light: #e0e0e0;
+  --color-text-dark: #ffffff;
+  --color-primary: #2E3C5C;
+  --color-primary-light: #3E4C6C;
+  --color-primary-dark: #1C2A44;
+  --color-accent: #D8BE69;
+  --color-accent-light: #E8CE79;
+  --color-accent-dark: #BFA046;
 } 

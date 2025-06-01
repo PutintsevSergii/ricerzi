@@ -19,12 +19,19 @@
 
   body {
     font-family: var(--font-inter), system-ui, sans-serif;
-    background-color: var(--background);
-    color: var(--text);
+    background-color: var(--color-background);
+    color: var(--color-text);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-merriweather), serif;
+    color: var(--color-text);
+  }
+
+  /* Dark mode styles */
+  [data-theme='dark'] {
+    --background: #1a1a1a;
+    --text: #ffffff;
   }
 }
 
@@ -34,7 +41,7 @@
   }
 
   .btn-secondary {
-    @apply rounded-md bg-white px-6 py-3 text-base font-medium text-primary hover:bg-gray-100 transition-colors;
+    @apply rounded-md bg-white dark:bg-gray-800 px-6 py-3 text-base font-medium text-primary dark:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
   }
 
   .container-custom {
@@ -54,7 +61,7 @@
 
 /* Focus styles */
 :focus-visible {
-  @apply outline-none ring-2 ring-primary ring-offset-2;
+  @apply outline-none ring-2 ring-primary ring-offset-2 dark:ring-primary-light;
 }
 
 /* Skip to main content link */
