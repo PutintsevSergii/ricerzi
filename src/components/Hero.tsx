@@ -21,7 +21,7 @@ export default function Hero({ currentLang }: HeroProps) {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-white">
+    <div className="relative bg-white">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         {/* Content section */}
         <div className="px-6 lg:col-span-6 lg:px-0 flex items-center h-[800px]">
@@ -39,7 +39,7 @@ export default function Hero({ currentLang }: HeroProps) {
               </h1>
             </div>
             <p 
-              className="mt-6 text-xl sm:text-2xl leading-8 text-gray-600"
+              className="mt-6 text-xl sm:text-2xl leading-8 text-gray-600 bg-gray-100 p-4"
               dangerouslySetInnerHTML={{ __html: content.heroSlogan }}
             />
             <p className="mt-6 text-lg leading-8 text-gray-600">

@@ -6,13 +6,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --font-inter: 'Inter', sans-serif;
-    --font-merriweather: 'Merriweather', serif;
-    --background: #F5F5F5;
-    --text: #1F1F1F;
-  }
-
   html {
     scroll-behavior: smooth;
   }
@@ -28,10 +21,22 @@
     color: var(--color-text);
   }
 
-  /* Dark mode styles */
-  [data-theme='dark'] {
-    --background: #1a1a1a;
-    --text: #ffffff;
+  .dark {
+    --color-background: #1C2A44;         /* Deep Blue Night */
+    --color-background-light: #2D3A5D;
+    --color-background-dark: #121C30;
+
+    --color-text: #F7F4ED;
+    --color-text-light: #EDE9DE;
+    --color-text-dark: #FFFFFF;
+
+    --color-primary: #A32626;            /* Papal Red */
+    --color-primary-light: #D44242;
+    --color-primary-dark: #751616;
+
+    --color-accent: #D1B15D;             /* Vatican Gold */
+    --color-accent-light: #E8CE79;
+    --color-accent-dark: #9C8140;
   }
 }
 
@@ -49,7 +54,6 @@
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -59,12 +63,10 @@
   }
 }
 
-/* Focus styles */
 :focus-visible {
   @apply outline-none ring-2 ring-primary ring-offset-2 dark:ring-primary-light;
 }
 
-/* Skip to main content link */
 .skip-to-main {
   @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md;
-} 
+}
