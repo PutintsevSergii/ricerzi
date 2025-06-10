@@ -103,7 +103,7 @@ export default function Header({ currentLang, navigation, languages }: HeaderPro
                   {item.name}
                 </Link>
               ))}
-              <div className="border-t border-primary-dark pt-4">
+              <div className="border-t border-primary-dark pt-4 flex justify-center">
                 <LanguageSwitcher languages={languages} currentLang={currentLang} />
               </div>
             </div>
