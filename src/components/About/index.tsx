@@ -1,69 +1,104 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface AboutProps {
   content: {
-    title: string
-    description: string
-    image: string
-    imageAlt: string
-    values: Array<{
-      title: string
-      description: string
-    }>
-    milestones: Array<{
-      year: string
-      description: string
-    }>
+    heroTitle: string
+    heroDescription: string
+    launchDate: string
+    location: string
+    whyHereTitle: string
+    whyHereContent: string
+    whyHerePoints: string[]
+    orderTitle: string
+    orderDescription: string
+    orderStats: string
+    closingQuote: string
+    closingQuoteAuthor: string
   }
 }
 
 export default function About({ content }: AboutProps) {
   return (
-    <div className="bg-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">{content.title}</h2>
-            <p className="text-lg mb-8">{content.description}</p>
-            <h3 className="text-2xl font-bold mb-4">Our Values</h3>
+    <main className="bg-background">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-primary text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
+              {content.heroTitle}
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-white/90">{content.heroDescription}</p>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+              <div className="flex items-center gap-2 text-white/90">
+                <span className="text-accent">📅</span>
+                <span>{content.launchDate}</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <span className="text-accent">📍</span>
+                <span>{content.location}</span>
+              </div>
+            </div>
+            <Link 
+              href="/join"
+              className="btn-primary"
+            >
+              Join Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why We're Here Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-heading font-bold mb-8 text-center text-primary">
+              {content.whyHereTitle}
+            </h2>
+            <div className="prose prose-lg text-text mb-8 text-center">
+              {content.whyHereContent}
+            </div>
             <ul className="space-y-4">
-              {content.values.map((value, index) => (
+              {content.whyHerePoints.map((point, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-primary text-2xl mr-3">•</span>
-                  <div>
-                    <p className="font-semibold">{value.title}</p>
-                    <p className="text-gray-600">{value.description}</p>
-                  </div>
+                  <span className="text-accent text-2xl mr-3">•</span>
+                  <p className="text-lg text-text">{point}</p>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="relative h-[400px] rounded-lg overflow-hidden">
-            <Image
-              src={content.image}
-              alt={content.imageAlt}
-              fill
-              className="object-cover"
-            />
-          </div>
         </div>
+      </section>
 
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our History</h2>
+      {/* Order Information Section */}
+      <section className="py-16 bg-background-light">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {content.milestones.map((milestone, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                  <p className="font-semibold text-primary mb-2">
-                    {milestone.year}
-                  </p>
-                  <p>{milestone.description}</p>
-                </div>
-              ))}
+            <h2 className="text-3xl font-heading font-bold mb-6 text-primary">
+              {content.orderTitle}
+            </h2>
+            <div className="prose prose-lg text-text mb-6">
+              {content.orderDescription}
             </div>
+            <p className="text-lg font-semibold text-text">{content.orderStats}</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Closing Quote */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <blockquote className="text-2xl font-heading italic mb-4 text-primary">
+              "{content.closingQuote}"
+            </blockquote>
+            <cite className="text-lg text-text-light">
+              — {content.closingQuoteAuthor}
+            </cite>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 } 
