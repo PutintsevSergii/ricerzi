@@ -16,6 +16,11 @@ const merriweather = Merriweather({
 interface SiteMetadata {
   title: string
   description: string
+  orgName?: string
+  address?: string
+  email?: string
+  phone?: string
+  copyright?: string
 }
 
 export default function RootLayout({
@@ -30,9 +35,9 @@ export default function RootLayout({
     notFound()
   }
 
-  // Get language-specific metadata
+  // Get language-specific metadata and footer fields
   const { data } = useContent(`site.${lang}`)
-  const { title, description } = data as SiteMetadata
+  const { title, description, orgName, address, email, phone, copyright } = data as SiteMetadata
 
   // Get the current language's navigation items
   const currentNavigation = navigation[lang as keyof typeof navigation] || navigation.en
@@ -64,6 +69,11 @@ export default function RootLayout({
           />
           <main className="flex-grow">{children}</main>
           <Footer 
+            orgName={orgName}
+            address={address}
+            email={email}
+            phone={phone}
+            copyright={copyright}
           />
         </div>
       </body>

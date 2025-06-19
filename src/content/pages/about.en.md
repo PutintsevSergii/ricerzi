@@ -2,7 +2,7 @@
 layout: about
 heroTitle: "About the Knights of John Paul II"
 heroDescription: "The Knights of John Paul II is a Catholic order of lay men united by faith, fraternity, and service. We follow Christ, inspired by the life, teachings, and example of Saint John Paul II."
-launchDate: "Official Launch: 22.06.2022"
+launchDate: "Official Launch: 22.06.2025"
 location: "Address: Pils iela 5, Centra rajons, Rīga, LV-1050"
 
 whyHereTitle: "Why We Exist"

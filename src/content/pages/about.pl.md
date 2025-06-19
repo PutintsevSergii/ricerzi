@@ -2,7 +2,7 @@
 layout: about
 heroTitle: "O Rycerzach Jana Pawła II"
 heroDescription: "Rycerze Jana Pawła II to katolicki zakon świeckich mężczyzn zjednoczonych wiarą, braterstwem i służbą. Podążamy za Chrystusem, inspirowani życiem, nauczaniem i przykładem Świętego Jana Pawła II."
-launchDate: "Oficjalne rozpoczęcie: 22.06.2022"
+launchDate: "Oficjalne rozpoczęcie: 22.06.2025"
 location: "Adres: Pils iela 5, Centra rajons, Rīga, LV-1050"
 
 whyHereTitle: "Dlaczego Istniejemy"

@@ -2,7 +2,7 @@
 layout: about
 heroTitle: "Par Jāņa Pāvila II Bruņiniekiem"
 heroDescription: "Jāņa Pāvila II Bruņinieki ir katoļu laju vīriešu kustība, kas vienota ticībā, brālībā un kalpošanā. Mēs sekojam Kristum, iedvesmoti no Svētā Jāņa Pāvila II dzīves, mācībām un piemēra."
-launchDate: "Oficiālais dibināšanas datums: 22.06.2022"
+launchDate: "Oficiālais dibināšanas datums: 22.06.2025"
 location: "Adrese: Pils iela 5, Centra rajons, Rīga, LV-1050"
 
 whyHereTitle: "Kāpēc Mēs Eksistējam"
