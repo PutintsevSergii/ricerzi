@@ -17,21 +17,42 @@ export default function Documents() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">{data.description}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {data.documents?.map((doc: any, index: number) => (
-            <a
-              key={index}
-              href={doc.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-6 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors"
-            >
-              <Icon icon={`mdi:${doc.icon}`} className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">{doc.title}</h3>
-              <p className="text-sm text-gray-600 text-center">{doc.description}</p>
-            </a>
-          ))}
-        </div>
+        {/* Our Path. Our Rule. Section */}
+        {data.ruleTitle && (
+          <section className="mb-16 mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{data.ruleTitle}</h2>
+            <div className="prose prose-lg mx-auto text-gray-800 mb-6 text-left">
+              {data.ruleContent?.split('\n').map((line: string, idx: number) => (
+                <p key={idx}>{line}</p>
+              ))}
+              {data.rulePillars && (
+                <ul className="list-disc pl-6 mt-4">
+                  {data.rulePillars.map((pillar: string, idx: number) => (
+                    <li key={idx}>{pillar}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+              <a
+                href="/documents/rule-pl.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Download the Rule (PL)
+              </a>
+              <a
+                href="/documents/rule-lv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Download the Rule (LV)
+              </a>
+            </div>
+          </section>
+        )}
       </div>
     </main>
   )
