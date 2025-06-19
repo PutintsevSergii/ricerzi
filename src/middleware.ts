@@ -14,12 +14,9 @@ export function middleware(request: NextRequest) {
 
   if (pathnameHasLanguage) return
 
-  // Redirect if there is no language code
-  const locale = request.headers.get('accept-language')?.split(',')?.[0].split('-')[0] || 'en'
-  const defaultLanguage = languages.includes(locale) ? locale : 'en'
-
+  // Always redirect to Latvian as default
   return NextResponse.redirect(
-    new URL(`/${defaultLanguage}${pathname}`, request.url)
+    new URL(`/lv${pathname}`, request.url)
   )
 }
 
