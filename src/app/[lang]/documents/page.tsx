@@ -1,12 +1,17 @@
-import { useContent } from '@/hooks/useContent'
-import { languages } from '@/config/navigation'
+import { getPageContent } from '@/lib/content'
+import { isLanguageCode, languages } from '@/config/navigation'
+import { notFound } from 'next/navigation'
 
 export default function Documents({
   params: { lang },
 }: {
   params: { lang: string }
 }) {
-  const { data } = useContent(`pages/documents.${lang}`)
+  if (!isLanguageCode(lang)) {
+    notFound()
+  }
+
+  const { data } = getPageContent('documents', lang)
 
   return (
     <main className="min-h-screen bg-white">

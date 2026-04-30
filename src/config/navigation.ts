@@ -30,4 +30,10 @@ export const languages = [
   { code: 'pl', name: 'Polski' },
   { code: 'en', name: 'English' },
   { code: 'ru', name: 'Русский' },
-] as const; 
+] as const;
+
+export type LanguageCode = (typeof languages)[number]['code']
+
+export function isLanguageCode(value: string): value is LanguageCode {
+  return languages.some(({ code }) => code === value)
+}

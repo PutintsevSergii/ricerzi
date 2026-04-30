@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation'
 import '../globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { useContent } from '@/hooks/useContent'
-import { navigation, languages } from '@/config/navigation'
+import { getSiteContent } from '@/lib/content'
+import { isLanguageCode, navigation, languages } from '@/config/navigation'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 const merriweather = Merriweather({
@@ -12,16 +12,6 @@ const merriweather = Merriweather({
   subsets: ['latin'],
   variable: '--font-heading',
 })
-
-interface SiteMetadata {
-  title: string
-  description: string
-  orgName?: string
-  address?: string
-  email?: string
-  phone?: string
-  copyright?: string
-}
 
 export default function RootLayout({
   children,
@@ -31,16 +21,16 @@ export default function RootLayout({
   params: { lang: string }
 }) {
   // Check if the language is supported
-  if (!languages.some(l => l.code === lang)) {
+  if (!isLanguageCode(lang)) {
     notFound()
   }
 
   // Get language-specific metadata and footer fields
-  const { data } = useContent(`site.${lang}`)
-  const { title, description, orgName, address, email, phone, copyright } = data as SiteMetadata
+  const { data } = getSiteContent(lang)
+  const { title, description, orgName, address, email, phone, copyright } = data
 
   // Get the current language's navigation items
-  const currentNavigation = navigation[lang as keyof typeof navigation] || navigation.en
+  const currentNavigation = navigation[lang]
 
   // Prepare languages data for the switcher
   const languagesData = languages.map(lang => ({

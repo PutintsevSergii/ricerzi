@@ -1,25 +1,18 @@
-import { useContent } from '@/hooks/useContent'
-import { languages } from '@/config/navigation'
+import { getPageContent, type ContactInfo, type SocialLink } from '@/lib/content'
+import { isLanguageCode, languages } from '@/config/navigation'
 import { Icon } from '@iconify/react'
-
-interface ContactInfo {
-  icon: string
-  label: string
-  value: string
-}
-
-interface SocialLink {
-  icon: string
-  platform: string
-  url: string
-}
+import { notFound } from 'next/navigation'
 
 export default function Contacts({
   params: { lang },
 }: {
   params: { lang: string }
 }) {
-  const { data } = useContent(`pages/contacts.${lang}`)
+  if (!isLanguageCode(lang)) {
+    notFound()
+  }
+
+  const { data } = getPageContent('contacts', lang)
 
   return (
     <main className="min-h-screen bg-white">

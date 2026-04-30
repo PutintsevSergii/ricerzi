@@ -16,14 +16,17 @@ Use this as the source checklist for follow-up hardening work.
 - [x] Remove duplicate and unnecessary `dangerouslyAllowSVG` image configuration.
 - [x] Remove unused `/api/content` file-reading route.
 - [x] Remove unused `next-intl` dependency.
+- [x] Remove stale unsupported Ukrainian content files.
+- [x] Update stale technical documentation.
+- [x] Update dependencies conservatively within the current Next.js 14 / React 18 architecture.
+- [x] Reduce npm audit findings to the remaining framework-level Next.js advisory.
 
 ## Remaining Fixes
 
-- [ ] Move content loading out of `src/hooks/useContent.ts` into a server utility, for example `src/lib/content.ts`.
-- [ ] Rename `useContent` to avoid implying it is a React hook.
-- [ ] Define typed content contracts per page instead of relying on `gray-matter` data as loose objects.
-- [ ] Decide whether Ukrainian content is supported; either add `ua` to `src/config/navigation.ts` and middleware or remove stale `*.ua.md` files.
+- [x] Move content loading out of `src/hooks/useContent.ts` into `src/lib/content.ts`.
+- [x] Rename `useContent` by replacing it with server utility functions.
+- [x] Define typed content contracts per page instead of relying on `gray-matter` data as loose objects.
 - [ ] Replace placeholder social links with production-owned URLs.
-- [ ] Review and fix npm audit findings. Current install reports 20 vulnerabilities, including 1 critical.
+- [ ] Plan the breaking Next.js 16 / React 19 upgrade needed to clear remaining framework advisories.
+- [ ] Review and fix remaining npm audit findings after the framework upgrade path is chosen.
 - [ ] Add browser-level smoke coverage once the visual design stabilizes.
-- [ ] Update or remove stale technical documentation in `docs/technical.md`.

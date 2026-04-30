@@ -15,12 +15,9 @@ contactInfo:
     icon: 'map-marker'
 socialMedia:
   - platform: 'Facebook'
-    url: 'https://facebook.com/knightsjp2'
+    url: 'https://www.facebook.com/share/1ECDxDhb42/'
     icon: 'facebook'
-  - platform: 'Instagram'
-    url: 'https://instagram.com/knightsjp2'
-    icon: 'instagram'
   - platform: 'YouTube'
-    url: 'https://youtube.com/knightsjp2'
+    url: 'https://www.youtube.com/@rycerzejanapawaii3273'
     icon: 'youtube'
 ---

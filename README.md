@@ -66,7 +66,7 @@ src/
   components/       React components
   config/           Navigation and language config
   content/          Markdown frontmatter content
-  hooks/            Current content loader
+  lib/              Server-side content loading utilities
   styles/           CSS theme variables
 tests/              Vitest checks
 docs/               Project notes and fix checklist
@@ -77,4 +77,4 @@ public/             Static assets and PDFs
 
 - Track follow-up hardening work in `docs/fix-checklist.md`.
 - Keep `npm run lint`, `npm run test`, and `npm run build` passing before larger rework.
-- The current content loader is synchronous and should eventually move from `src/hooks/useContent.ts` into a server utility.
+- Content loading is handled server-side in `src/lib/content.ts`.

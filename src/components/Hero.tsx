@@ -23,7 +23,7 @@ export default function Hero({ content }: HeroProps) {
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         {/* Content section */}
-        <div className="px-6 lg:col-span-6 lg:px-0 flex items-center h-[800px]">
+        <div className="flex px-6 py-10 sm:py-14 lg:col-span-6 lg:h-[800px] lg:items-center lg:px-0 lg:py-0">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <div className="flex flex-col items-center mb-8">
               <Image
@@ -47,7 +47,7 @@ export default function Hero({ content }: HeroProps) {
         </div>
 
         {/* Image section */}
-        <div className="relative lg:col-span-6 lg:flex lg:items-center lg:justify-center h-[800px]">
+        <div className="relative h-[520px] sm:h-[640px] lg:col-span-6 lg:flex lg:h-[800px] lg:items-center lg:justify-center">
           <div className="relative h-full w-full max-w-2xl mx-auto">
             <Image
               className="relative object-contain h-full w-full"

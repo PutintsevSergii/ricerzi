@@ -34,11 +34,11 @@ export default function Header({ currentLang, navigation, languages }: HeaderPro
   }, [pathname])
 
   return (
-    <header className="bg-primary text-white">
+    <header className="relative z-50 bg-primary text-white">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href={`/${currentLang}`} className="font-heading text-2xl font-bold text-accent flex items-center gap-2">
+          <div className="flex min-w-0 items-center">
+            <Link href={`/${currentLang}`} className="font-heading flex min-w-0 items-center gap-2 text-lg font-bold text-accent sm:text-2xl">
               <Image
                 src="/logo_small.png"
                 alt="Rycerze Jana Pawła II logo"
@@ -49,7 +49,7 @@ export default function Header({ currentLang, navigation, languages }: HeaderPro
                 unoptimized
                 priority
               />
-              Rycerze Jana Pawła II
+              <span className="truncate">Rycerze Jana Pawła II</span>
             </Link>
           </div>
 
@@ -89,7 +89,7 @@ export default function Header({ currentLang, navigation, languages }: HeaderPro
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="relative z-50 md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <Link
