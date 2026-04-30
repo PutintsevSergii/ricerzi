@@ -5,11 +5,9 @@ import Initiatives from '@/components/Initiatives'
 import { isLanguageCode, languages } from '@/config/navigation'
 import { notFound } from 'next/navigation'
 
-export default function Home({
-  params: { lang },
-}: {
-  params: { lang: string }
-}) {
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+
   if (!isLanguageCode(lang)) {
     notFound()
   }

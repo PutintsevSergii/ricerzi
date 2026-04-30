@@ -70,15 +70,15 @@ describe('localized content', () => {
 })
 
 describe('language configuration', () => {
-  it('keeps middleware, navigation, and language switcher codes aligned', () => {
+  it('keeps proxy, navigation, and language switcher codes aligned', () => {
     const supported = supportedLanguageCodes()
-    const middleware = readFileSync(path.join(rootDir, 'src/middleware.ts'), 'utf8')
-    const middlewareLanguages = Array.from(middleware.matchAll(/'([a-z]{2})'/g), match => match[1]).filter(code =>
+    const proxy = readFileSync(path.join(rootDir, 'src/proxy.ts'), 'utf8')
+    const proxyLanguages = Array.from(proxy.matchAll(/'([a-z]{2})'/g), match => match[1]).filter(code =>
       supported.includes(code as typeof supported[number]),
     )
 
     expect(Object.keys(navigation).sort()).toEqual([...supported].sort())
-    expect([...new Set(middlewareLanguages)].sort()).toEqual([...supported].sort())
+    expect([...new Set(proxyLanguages)].sort()).toEqual([...supported].sort())
   })
 
   it('links every navigation item to an implemented localized route', () => {

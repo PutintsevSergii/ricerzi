@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -27,11 +27,6 @@ interface HeaderProps {
 export default function Header({ currentLang, navigation, languages }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  
-  // Close mobile menu when pathname changes
-  useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [pathname])
 
   return (
     <header className="relative z-50 bg-primary text-white">

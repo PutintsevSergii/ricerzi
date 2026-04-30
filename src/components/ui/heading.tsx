@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ElementType, ReactNode } from 'react'
 
 interface HeadingProps {
   children: ReactNode
@@ -7,6 +7,6 @@ interface HeadingProps {
 }
 
 export function Heading({ children, level, className = '' }: HeadingProps) {
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements
+  const Tag = `h${level}` as ElementType
   return <Tag className={className}>{children}</Tag>
 } 

@@ -3,11 +3,9 @@ import { isLanguageCode, languages } from '@/config/navigation'
 import { Icon } from '@iconify/react'
 import { notFound } from 'next/navigation'
 
-export default function Contacts({
-  params: { lang },
-}: {
-  params: { lang: string }
-}) {
+export default async function Contacts({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+
   if (!isLanguageCode(lang)) {
     notFound()
   }
