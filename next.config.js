@@ -2,7 +2,6 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -13,7 +12,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ['image/webp'],
     minimumCacheTTL: 60,
-    dangerouslyAllowSVG: true,
   },
   webpack: (config) => {
     config.module.rules.push({

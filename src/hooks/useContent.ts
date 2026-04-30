@@ -1,31 +1,37 @@
 import matter from 'gray-matter'
 
 // Import all markdown files
-const aboutLv = require('../content/pages/about.lv.md')
-const aboutPl = require('../content/pages/about.pl.md')
-const aboutEn = require('../content/pages/about.en.md')
-const aboutRu = require('../content/pages/about.ru.md')
+import aboutLv from '../content/pages/about.lv.md'
+import aboutPl from '../content/pages/about.pl.md'
+import aboutEn from '../content/pages/about.en.md'
+import aboutRu from '../content/pages/about.ru.md'
 
 // Import home page markdown files
-const homeLv = require('../content/pages/home.lv.md')
-const homePl = require('../content/pages/home.pl.md')
-const homeEn = require('../content/pages/home.en.md')
-const homeRu = require('../content/pages/home.ru.md')
+import homeLv from '../content/pages/home.lv.md'
+import homePl from '../content/pages/home.pl.md'
+import homeEn from '../content/pages/home.en.md'
+import homeRu from '../content/pages/home.ru.md'
 
 // Import documents page markdown files
-const documentsLv = require('../content/pages/documents.lv.md')
-const documentsPl = require('../content/pages/documents.pl.md')
-const documentsEn = require('../content/pages/documents.en.md')
-const documentsRu = require('../content/pages/documents.ru.md')
+import documentsLv from '../content/pages/documents.lv.md'
+import documentsPl from '../content/pages/documents.pl.md'
+import documentsEn from '../content/pages/documents.en.md'
+import documentsRu from '../content/pages/documents.ru.md'
+
+// Import contacts page markdown files
+import contactsLv from '../content/pages/contacts.lv.md'
+import contactsPl from '../content/pages/contacts.pl.md'
+import contactsEn from '../content/pages/contacts.en.md'
+import contactsRu from '../content/pages/contacts.ru.md'
 
 // Import site metadata files
-const siteLv = require('../content/site.lv.md')
-const sitePl = require('../content/site.pl.md')
-const siteEn = require('../content/site.en.md')
-const siteRu = require('../content/site.ru.md')
+import siteLv from '../content/site.lv.md'
+import sitePl from '../content/site.pl.md'
+import siteEn from '../content/site.en.md'
+import siteRu from '../content/site.ru.md'
 
 // Map paths to their content
-const contentMap: Record<string, any> = {
+export const contentMap: Record<string, string> = {
   'pages/about.lv': aboutLv,
   'pages/about.pl': aboutPl,
   'pages/about.en': aboutEn,
@@ -38,6 +44,10 @@ const contentMap: Record<string, any> = {
   'pages/documents.pl': documentsPl,
   'pages/documents.en': documentsEn,
   'pages/documents.ru': documentsRu,
+  'pages/contacts.lv': contactsLv,
+  'pages/contacts.pl': contactsPl,
+  'pages/contacts.en': contactsEn,
+  'pages/contacts.ru': contactsRu,
   'site.lv': siteLv,
   'site.pl': sitePl,
   'site.en': siteEn,
@@ -51,28 +61,9 @@ export function useContent(path: string) {
       throw new Error(`Content not found for path: ${path}`)
     }
 
-    // Get the actual string content
-    const contentString = typeof content === 'string' ? content : content.default || content
-
-    // Debug log
-    console.log('Content before parsing:', contentString)
-    
-    // Try to parse with more lenient options
-    const result = matter(contentString, {
+    const result = matter(content, {
       excerpt: false,
       excerpt_separator: '---',
-      engines: {
-        yaml: {
-          parse: (str: string) => {
-            try {
-              return require('js-yaml').load(str)
-            } catch (e) {
-              console.error('YAML parsing error:', e)
-              throw e
-            }
-          }
-        }
-      }
     })
     return result
   } catch (error) {

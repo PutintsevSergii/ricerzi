@@ -1,12 +1,24 @@
-'use client'
-
 import { useContent } from '@/hooks/useContent'
-import { useParams } from 'next/navigation'
+import { languages } from '@/config/navigation'
 import { Icon } from '@iconify/react'
 
-export default function Contacts() {
-  const params = useParams()
-  const lang = params.lang as string
+interface ContactInfo {
+  icon: string
+  label: string
+  value: string
+}
+
+interface SocialLink {
+  icon: string
+  platform: string
+  url: string
+}
+
+export default function Contacts({
+  params: { lang },
+}: {
+  params: { lang: string }
+}) {
   const { data } = useContent(`pages/contacts.${lang}`)
 
   return (
@@ -20,9 +32,9 @@ export default function Contacts() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">{data.contactInfoTitle}</h2>
             <div className="space-y-6">
-              {data.contactInfo.map((info: any, index: number) => (
+              {data.contactInfo.map((info: ContactInfo, index: number) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <Icon icon={`mdi:${info.icon}`} className="w-6 h-6 text-blue-600" />
@@ -38,9 +50,9 @@ export default function Contacts() {
 
           {/* Social Media */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Follow Us</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">{data.socialMediaTitle}</h2>
             <div className="grid grid-cols-1 gap-6">
-              {data.socialMedia.map((social: any, index: number) => (
+              {data.socialMedia.map((social: SocialLink, index: number) => (
                 <a
                   key={index}
                   href={social.url}
@@ -58,4 +70,8 @@ export default function Contacts() {
       </div>
     </main>
   )
-} 
+}
+
+export async function generateStaticParams() {
+  return languages.map(({ code }) => ({ lang: code }))
+}

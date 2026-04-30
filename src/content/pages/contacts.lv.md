@@ -1,0 +1,26 @@
+---
+title: 'Kontakti'
+contactTitle: 'Sazinieties ar mums'
+contactDescription: 'Priecāsimies saņemt ziņu no jums. Izmantojiet zemāk norādītos kontaktus, lai sazinātos ar Jāņa Pāvila II Bruņiniekiem Rīgā.'
+contactInfoTitle: 'Kontaktinformācija'
+socialMediaTitle: 'Sekojiet mums'
+contactInfo:
+  - type: 'phone'
+    label: 'Tālrunis'
+    value: '+371 27 033 520'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Adrese'
+    value: 'Pils iela 5, Centra rajons, Rīga, LV-1050, Latvija'
+    icon: 'map-marker'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+---

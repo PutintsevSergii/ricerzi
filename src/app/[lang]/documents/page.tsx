@@ -1,12 +1,11 @@
-'use client'
-
 import { useContent } from '@/hooks/useContent'
-import { useParams } from 'next/navigation'
-import { Icon } from '@iconify/react'
+import { languages } from '@/config/navigation'
 
-export default function Documents() {
-  const params = useParams()
-  const lang = params.lang as string
+export default function Documents({
+  params: { lang },
+}: {
+  params: { lang: string }
+}) {
   const { data } = useContent(`pages/documents.${lang}`)
 
   return (
@@ -56,4 +55,8 @@ export default function Documents() {
       </div>
     </main>
   )
-} 
+}
+
+export async function generateStaticParams() {
+  return languages.map(({ code }) => ({ lang: code }))
+}

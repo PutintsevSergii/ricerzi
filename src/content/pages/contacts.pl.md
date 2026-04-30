@@ -1,0 +1,26 @@
+---
+title: 'Kontakt'
+contactTitle: 'Skontaktuj się z nami'
+contactDescription: 'Chętnie odpowiemy na wiadomość. Skorzystaj z poniższych danych, aby skontaktować się z Rycerzami Jana Pawła II w Rydze.'
+contactInfoTitle: 'Informacje kontaktowe'
+socialMediaTitle: 'Obserwuj nas'
+contactInfo:
+  - type: 'phone'
+    label: 'Telefon'
+    value: '+371 27 033 520'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Adres'
+    value: 'Pils iela 5, Centra rajons, Rīga, LV-1050, Łotwa'
+    icon: 'map-marker'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+---

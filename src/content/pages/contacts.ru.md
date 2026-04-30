@@ -1,0 +1,26 @@
+---
+title: 'Контакты'
+contactTitle: 'Свяжитесь с нами'
+contactDescription: 'Мы будем рады получить ваше сообщение. Используйте контакты ниже, чтобы связаться с Рыцарями Иоанна Павла II в Риге.'
+contactInfoTitle: 'Контактная информация'
+socialMediaTitle: 'Следите за нами'
+contactInfo:
+  - type: 'phone'
+    label: 'Телефон'
+    value: '+371 27 033 520'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Адрес'
+    value: 'Pils iela 5, Centra rajons, Рига, LV-1050, Латвия'
+    icon: 'map-marker'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+---

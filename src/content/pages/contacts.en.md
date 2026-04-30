@@ -1,0 +1,26 @@
+---
+title: 'Contacts'
+contactTitle: 'Contact Us'
+contactDescription: 'We would be glad to hear from you. Use the channels below to reach the Knights of John Paul II in Riga.'
+contactInfoTitle: 'Contact Information'
+socialMediaTitle: 'Follow Us'
+contactInfo:
+  - type: 'phone'
+    label: 'Phone'
+    value: '+371 27 033 520'
+    icon: 'phone'
+  - type: 'address'
+    label: 'Address'
+    value: 'Pils iela 5, Centra rajons, Riga, LV-1050, Latvia'
+    icon: 'map-marker'
+socialMedia:
+  - platform: 'Facebook'
+    url: 'https://facebook.com/knightsjp2'
+    icon: 'facebook'
+  - platform: 'Instagram'
+    url: 'https://instagram.com/knightsjp2'
+    icon: 'instagram'
+  - platform: 'YouTube'
+    url: 'https://youtube.com/knightsjp2'
+    icon: 'youtube'
+---

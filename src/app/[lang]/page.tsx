@@ -1,5 +1,5 @@
 import { useContent } from '@/hooks/useContent'
-import Hero from '@/components/Hero'
+import Hero, { type HeroContent } from '@/components/Hero'
 import About from '@/components/About'
 import Initiatives from '@/components/Initiatives'
 import { languages } from '@/config/navigation'
@@ -18,8 +18,8 @@ export default function Home({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Hero currentLang={lang} />
-      <About 
+      <Hero content={content as HeroContent} />
+      <About
         image="/lv_simb.png"
         title={content.aboutTitle}
         content={content.aboutContent}

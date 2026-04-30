@@ -6,11 +6,11 @@ import Footer from '@/components/Footer'
 import { useContent } from '@/hooks/useContent'
 import { navigation, languages } from '@/config/navigation'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 const merriweather = Merriweather({
   weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-merriweather',
+  variable: '--font-heading',
 })
 
 interface SiteMetadata {
