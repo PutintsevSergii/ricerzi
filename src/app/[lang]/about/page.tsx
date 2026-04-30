@@ -1,6 +1,7 @@
-import { languages } from '@/config/navigation'
-import { useContent } from '@/hooks/useContent'
+import { isLanguageCode, languages } from '@/config/navigation'
+import { getPageContent, type AboutContent } from '@/lib/content'
 import About from '@/components/About/index'
+import { notFound } from 'next/navigation'
 
 interface AboutPageProps {
   params: {
@@ -8,23 +9,12 @@ interface AboutPageProps {
   }
 }
 
-interface AboutContent {
-  heroTitle: string
-  heroDescription: string
-  launchDate: string
-  location: string
-  whyHereTitle: string
-  whyHereContent: string
-  whyHerePoints: string[]
-  orderTitle: string
-  orderDescription: string
-  orderStats: string
-  closingQuote: string
-  closingQuoteAuthor: string
-}
-
 export default function AboutPage({ params: { lang } }: AboutPageProps) {
-  const { data } = useContent(`pages/about.${lang}`)
+  if (!isLanguageCode(lang)) {
+    notFound()
+  }
+
+  const { data } = getPageContent('about', lang)
 
   if (!data) {
     return null

@@ -3,21 +3,25 @@ export const navigation = {
     { name: 'Sākums', href: '/' },
     { name: 'Par mums', href: '/about' },
     { name: 'Dokumenti', href: '/documents' },
+    { name: 'Kontakti', href: '/contacts' },
   ],
   pl: [
     { name: 'Strona główna', href: '/' },
     { name: 'O nas', href: '/about' },
     { name: 'Dokumenty', href: '/documents' },
+    { name: 'Kontakt', href: '/contacts' },
   ],
   en: [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Documents', href: '/documents' },
+    { name: 'Contacts', href: '/contacts' },
   ],
   ru: [
     { name: 'Главная', href: '/' },
     { name: 'О нас', href: '/about' },
     { name: 'Документы', href: '/documents' },
+    { name: 'Контакты', href: '/contacts' },
   ],
 } as const;
 
@@ -26,4 +30,10 @@ export const languages = [
   { code: 'pl', name: 'Polski' },
   { code: 'en', name: 'English' },
   { code: 'ru', name: 'Русский' },
-] as const; 
+] as const;
+
+export type LanguageCode = (typeof languages)[number]['code']
+
+export function isLanguageCode(value: string): value is LanguageCode {
+  return languages.some(({ code }) => code === value)
+}

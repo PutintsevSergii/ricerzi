@@ -1,21 +1,20 @@
-'use client'
-
 import Image from 'next/image'
-import { useContent } from '@/hooks/useContent'
 
-interface HeroContent {
+export interface HeroContent {
   heroName: string
   heroSlogan: string
   heroDescription: string
 }
 
 interface HeroProps {
-  currentLang: string
+  content: HeroContent
 }
 
-export default function Hero({ currentLang }: HeroProps) {
-  const { data: content } = useContent(`pages/home.${currentLang}`)
+function stripHtml(value: string) {
+  return value.replace(/<[^>]*>/g, '')
+}
 
+export default function Hero({ content }: HeroProps) {
   if (!content) {
     return null
   }
@@ -24,7 +23,7 @@ export default function Hero({ currentLang }: HeroProps) {
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         {/* Content section */}
-        <div className="px-6 lg:col-span-6 lg:px-0 flex items-center h-[800px]">
+        <div className="flex px-6 py-10 sm:py-14 lg:col-span-6 lg:h-[800px] lg:items-center lg:px-0 lg:py-0">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <div className="flex flex-col items-center mb-8">
               <Image
@@ -38,10 +37,9 @@ export default function Hero({ currentLang }: HeroProps) {
                 {content.heroName}
               </h1>
             </div>
-            <p 
-              className="mt-6 text-xl sm:text-2xl leading-8 text-gray-600 bg-gray-100 p-4"
-              dangerouslySetInnerHTML={{ __html: content.heroSlogan }}
-            />
+            <p className="mt-6 text-xl sm:text-2xl leading-8 text-gray-600 bg-gray-100 p-4">
+              {stripHtml(content.heroSlogan)}
+            </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               {content.heroDescription}
             </p>
@@ -49,7 +47,7 @@ export default function Hero({ currentLang }: HeroProps) {
         </div>
 
         {/* Image section */}
-        <div className="relative lg:col-span-6 lg:flex lg:items-center lg:justify-center h-[800px]">
+        <div className="relative h-[520px] sm:h-[640px] lg:col-span-6 lg:flex lg:h-[800px] lg:items-center lg:justify-center">
           <div className="relative h-full w-full max-w-2xl mx-auto">
             <Image
               className="relative object-contain h-full w-full"

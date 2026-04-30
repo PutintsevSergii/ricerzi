@@ -1,115 +1,80 @@
-# Rycerze Jana Pawła II Website
+# Rycerze Jana Pawla II Website
 
-A modern, accessible, and multilingual website for the Catholic order "Knights of John Paul II" built with Next.js 14, Tailwind CSS, and Decap CMS.
+Multilingual website for the Knights of John Paul II community in Riga, built with Next.js App Router, TypeScript, Tailwind CSS, and Markdown frontmatter content.
 
 ## Features
 
-- 🌐 Multilingual support (Polish, English, Ukrainian)
-- ♿ WCAG 2.1 AA accessibility compliance
-- 📱 Responsive design
-- 🎨 Modern UI with Catholic aesthetics
-- 📝 Git-based content management with Decap CMS
-- 🔍 SEO optimized
+- Multilingual routes: Latvian (`lv`), Polish (`pl`), English (`en`), and Russian (`ru`)
+- Static content for home, about, documents, and contacts pages
+- Localized navigation and site metadata
+- Markdown frontmatter content files under `src/content`
+- Next.js image rendering and Google font loading through `next/font`
+- Vitest coverage for route/content consistency and source safety checks
 
-## Tech Stack
-
-- Next.js 14+ with App Router
-- Tailwind CSS for styling
-- Decap CMS (Netlify CMS fork) for content management
-- TypeScript for type safety
-- Google Fonts (Merriweather, Inter)
-
-## Prerequisites
+## Requirements
 
 - Node.js 18.17 or later
-- npm or yarn
-- Git
+- npm
 
-## Installation
+## Setup
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/rycerze-jana-pawla-ii.git
-   cd rycerze-jana-pawla-ii
-   ```
+```bash
+npm install
+npm run dev
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+Open [http://localhost:3000](http://localhost:3000). The middleware redirects `/` to `/lv`.
 
-3. Create a `.env.local` file in the root directory:
-   ```
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-   ```
+## Commands
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+```bash
+npm run dev        # Start the local development server
+npm run build      # Run linting/type checks and create a production build
+npm run start      # Start the production server after a build
+npm run lint       # Run Next.js ESLint checks
+npm run test       # Run Vitest tests once
+npm run test:watch # Run Vitest in watch mode
+```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Content
 
-## Content Management
+Localized page content lives in `src/content/pages` with the pattern:
 
-The website uses Decap CMS for content management. To access the CMS:
+```text
+home.lv.md
+about.lv.md
+documents.lv.md
+contacts.lv.md
+```
 
-1. Navigate to `/admin` on your deployed site
-2. Log in with your GitHub credentials
-3. Start editing content
+Site-wide localized metadata lives in `src/content/site.<lang>.md`.
 
-## Deployment
+When adding a language, update all of these together:
 
-### Vercel (Recommended)
+- `src/config/navigation.ts`
+- `src/middleware.ts`
+- `src/content/site.<lang>.md`
+- every page content file for that language
 
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Configure environment variables
-4. Deploy
-
-### GitHub Pages
-
-1. Update `next.config.js` with your GitHub Pages URL
-2. Add the following to your `package.json`:
-   ```json
-   "scripts": {
-     "export": "next build && next export"
-   }
-   ```
-3. Run `npm run export`
-4. Push the `out` directory to your GitHub Pages branch
+The test suite checks that supported localized routes have matching content files and required frontmatter fields.
 
 ## Project Structure
 
+```text
+src/
+  app/              Next.js App Router routes
+  components/       React components
+  config/           Navigation and language config
+  content/          Markdown frontmatter content
+  lib/              Server-side content loading utilities
+  styles/           CSS theme variables
+tests/              Vitest checks
+docs/               Project notes and fix checklist
+public/             Static assets and PDFs
 ```
-├── src/
-│   ├── app/              # Next.js app directory
-│   ├── components/       # React components
-│   ├── content/         # Markdown content
-│   └── styles/          # Global styles
-├── public/              # Static assets
-└── admin/              # Decap CMS configuration
-```
 
-## Contributing
+## Maintenance Notes
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Decap CMS](https://decapcms.org/)
-- [Google Fonts](https://fonts.google.com/) 
+- Track follow-up hardening work in `docs/fix-checklist.md`.
+- Keep `npm run lint`, `npm run test`, and `npm run build` passing before larger rework.
+- Content loading is handled server-side in `src/lib/content.ts`.

@@ -1,13 +1,17 @@
-'use client'
+import { getPageContent } from '@/lib/content'
+import { isLanguageCode, languages } from '@/config/navigation'
+import { notFound } from 'next/navigation'
 
-import { useContent } from '@/hooks/useContent'
-import { useParams } from 'next/navigation'
-import { Icon } from '@iconify/react'
+export default function Documents({
+  params: { lang },
+}: {
+  params: { lang: string }
+}) {
+  if (!isLanguageCode(lang)) {
+    notFound()
+  }
 
-export default function Documents() {
-  const params = useParams()
-  const lang = params.lang as string
-  const { data } = useContent(`pages/documents.${lang}`)
+  const { data } = getPageContent('documents', lang)
 
   return (
     <main className="min-h-screen bg-white">
@@ -56,4 +60,8 @@ export default function Documents() {
       </div>
     </main>
   )
-} 
+}
+
+export async function generateStaticParams() {
+  return languages.map(({ code }) => ({ lang: code }))
+}
