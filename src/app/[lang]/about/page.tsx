@@ -4,12 +4,14 @@ import About from '@/components/About/index'
 import { notFound } from 'next/navigation'
 
 interface AboutPageProps {
-  params: {
+  params: Promise<{
     lang: string
-  }
+  }>
 }
 
-export default function AboutPage({ params: { lang } }: AboutPageProps) {
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { lang } = await params
+
   if (!isLanguageCode(lang)) {
     notFound()
   }

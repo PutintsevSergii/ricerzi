@@ -2,11 +2,9 @@ import { getPageContent } from '@/lib/content'
 import { isLanguageCode, languages } from '@/config/navigation'
 import { notFound } from 'next/navigation'
 
-export default function Documents({
-  params: { lang },
-}: {
-  params: { lang: string }
-}) {
+export default async function Documents({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+
   if (!isLanguageCode(lang)) {
     notFound()
   }

@@ -8,13 +8,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode
-  params: { lang: string }
 }) {
   return (
-    <html lang={params.lang} suppressHydrationWarning>
+    <html lang="lv" suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
       </body>
